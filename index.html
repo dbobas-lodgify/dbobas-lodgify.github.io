@@ -1,1 +1,208 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    text-align: center;
+  }
+
+  /* Logo and progress bar container spans full width */
+  header {
+    padding: 20px 20px 10px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+    text-align: left; /* left align the svg */
+  }
+  .logo svg {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  progress {
+    width: 100vw; /* full viewport width */
+    height: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    margin: 0; /* remove default margin */
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  progress::-webkit-progress-value {
+    background-color: #008060;
+    border-radius: 4px;
+  }
+  progress::-moz-progress-bar {
+    background-color: #008060;
+    border-radius: 4px;
+  }
+
+  /* Center container for form and content */
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .social-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: default;
+    background: #fff;
+  }
+
+  .social-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  form {
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  label span {
+    color: red;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #008060;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background: #f2f2f2;
+    color: #999;
+    cursor: default;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <!-- Your SVG logo -->
+    <svg viewBox="0 0 94 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 5.19231H32.7167V12.6511H37.2994V14.8077H30V5.19231Z" fill="black" />
+      <path d="M43.0705 15C42.0551 15 41.1404 14.7848 40.3263 14.3544C39.5214 13.924 38.8857 13.3288 38.4192 12.5687C37.9618 11.8086 37.7331 10.9524 37.7331 10C37.7331 9.04762 37.9618 8.19139 38.4192 7.43132C38.8857 6.67125 39.5214 6.07601 40.3263 5.6456C41.1404 5.2152 42.0551 5 43.0705 5C44.0858 5 44.9959 5.2152 45.8009 5.6456C46.615 6.07601 47.2507 6.67125 47.7081 7.43132C48.1746 8.19139 48.4078 9.04762 48.4078 10C48.4078 10.9524 48.1746 11.8086 47.7081 12.5687C47.2507 13.3288 46.615 13.924 45.8009 14.3544C44.9959 14.7848 44.0858 15 43.0705 15ZM43.0705 12.7473C43.5553 12.7473 43.9943 12.6328 44.3877 12.4038C44.781 12.1749 45.092 11.8544 45.3207 11.4423C45.5493 11.0211 45.6637 10.5403 45.6637 10C45.6637 9.45971 45.5493 8.98352 45.3207 8.57143C45.092 8.15018 44.781 7.82509 44.3877 7.59615C43.9943 7.36722 43.5553 7.25275 43.0705 7.25275C42.5857 7.25275 42.1466 7.36722 41.7533 7.59615C41.36 7.82509 41.049 8.15018 40.8203 8.57143C40.5916 8.98352 40.4773 9.45971 40.4773 10C40.4773 10.5403 40.5916 11.0211 40.8203 11.4423C41.049 11.8544 41.36 12.1749 41.7533 12.4038C42.1466 12.6328 42.5857 12.7473 43.0705 12.7473Z" fill="black" />
+      <path d="M49.8307 5.19231H54.3723C55.4242 5.19231 56.3572 5.38919 57.1713 5.78297C57.9854 6.17674 58.6165 6.73535 59.0647 7.45879C59.5129 8.18223 59.7371 9.0293 59.7371 10C59.7371 10.9707 59.5129 11.8178 59.0647 12.5412C58.6165 13.2647 57.9854 13.8233 57.1713 14.217C56.3572 14.6108 55.4242 14.8077 54.3723 14.8077H49.8307V5.19231ZM54.2625 12.6374C55.0857 12.6374 55.7443 12.4038 56.2383 11.9368C56.7414 11.4698 56.9929 10.8242 56.9929 10C56.9929 9.17582 56.7414 8.53022 56.2383 8.06319C55.7443 7.59615 55.0857 7.36264 54.2625 7.36264H52.5474V12.6374H54.2625Z" fill="black" />
+      <path d="M67.6014 9.79396H70.0025V13.7775C69.4537 14.1712 68.8225 14.4734 68.109 14.6841C67.3956 14.8947 66.6821 15 65.9686 15C64.9624 15 64.0569 14.7894 63.2519 14.3681C62.447 13.9377 61.8158 13.3425 61.3584 12.5824C60.9011 11.8223 60.6724 10.9615 60.6724 10C60.6724 9.03846 60.9011 8.17766 61.3584 7.41758C61.8158 6.65751 62.4515 6.06685 63.2656 5.6456C64.0797 5.2152 64.999 5 66.0235 5C66.9199 5 67.7249 5.1511 68.4383 5.4533C69.1518 5.75549 69.7464 6.19048 70.222 6.75824L68.4932 8.32418C67.8438 7.60989 67.0663 7.25275 66.1607 7.25275C65.3375 7.25275 64.6743 7.50458 64.1712 8.00824C63.6681 8.50275 63.4166 9.16667 63.4166 10C63.4166 10.5311 63.5309 11.0073 63.7596 11.4286C63.9883 11.8407 64.3084 12.1658 64.72 12.4038C65.1316 12.6328 65.6027 12.7473 66.1333 12.7473C66.6546 12.7473 67.144 12.6419 67.6014 12.4313V9.79396Z" fill="black" />
+      <path d="M71.7249 5.19231H74.4416V14.8077H71.7249V5.19231Z" fill="black" />
+      <path d="M79.0911 7.29396V9.40934H83.3308V11.511H79.0911V14.8077H76.3744V5.19231H83.907V7.29396H79.0911Z" fill="black" />
+      <path d="M90.3229 11.3599V14.8077H87.6062V11.3187L83.9427 5.19231H86.8104L89.088 9.01099L91.3656 5.19231H94L90.3229 11.3599Z" fill="black" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V20H20V10H10V0H0Z" fill="#FF3B59" />
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M14 6H20V0H14V6Z" fill="#03EBC3" />
+    </svg>
+  </div>
+  <progress max="100" value="0">0</progress>
+</header>
+
+<div class="container">
+  <h1>Login</h1>
+  <div class="social-buttons">
+    <div class="social-button">
+      <!-- Google Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+        <path fill="#4285F4" d="M488 261.8c0-17.4-1.6-34-4.6-50.2H249v95h134c-5.8 31.4-23.3 57.8-49.5 75.6l79.9 62.1C454.5 408 488 339.6 488 261.8z"/>
+        <path fill="#34A853" d="M249 492c66.7 0 122.5-22.1 163.3-59.9l-79.9-62.1c-22.2 15-50.6 23.8-83.4 23.8-64 0-118-43.2-137.5-101.1l-82 63.5C69.6 438.2 152.1 492 249 492z"/>
+        <path fill="#FBBC05" d="M111.5 292.7c-4.6-13.8-7.3-28.6-7.3-43.7s2.6-29.9 7.3-43.7l-82-63.5C18.6 168.1 0 212.2 0 249s18.6 80.9 49.5 107.1l82-63.4z"/>
+        <path fill="#EA4335" d="M249 97.9c36.3 0 69 12.5 94.6 37l71-71C371.5 27.1 315.7 0 249 0 152.1 0 69.6 53.8 49.5 141.9l82 63.5C131 141.1 185 97.9 249 97.9z"/>
+      </svg>
+      Google
+    </div>
+    <div class="social-button">
+      <!-- Facebook Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path fill="#1877F2" d="M279.14 288l14.22-92.66h-88.91V127.93c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.12 0 268.12 0c-73.1 0-121.3 44.38-121.3 124.72V195.3H86.41V288h60.41v224h92.66V288z"/>
+      </svg>
+      Facebook
+    </div>
+    <div class="social-button">
+      <!-- Apple Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+        <path fill="#000000" d="M318.7 268.7c-.5-36.7 16.4-64.5 50-84.3-18.7-26.8-47-41.4-85.5-44.6-35.9-3.1-75.2 21.3-89.1 21.3-14.2 0-47.2-20.4-73.1-19.9-75 1.1-155.2 62.1-155.2 185.5 0 26.4 4.9 53.5 14.8 80.6 13.2 36.3 60.6 125.2 110.1 123.6 25.9-.6 44.3-18.4 74.8-18.4 29.9 0 46.8 18.4 73.1 18.4 49.8-.7 92.5-82.2 105.5-118.4-67.1-31.8-64.3-93-65.4-103.8zM257.5 79.4c27.1-32.8 24.6-62.4 23.8-73.4-23.1 1.3-50.5 15.5-66.8 34.7-17.5 20.2-27.7 45-25.5 71.4 25.4 2 49.5-12.4 68.5-32.7z"/>
+      </svg>
+      Apple
+    </div>
+  </div>
+  <form>
+    <label>Email <span>*</span></label>
+    <input type="email" placeholder="" />
+    <label>Password <span>*</span></label>
+    <input type="password" placeholder="" />
+    <div class="forgot-password"><a href="#">Forgot password?</a></div>
+    <div class="checkbox">
+      <input type="checkbox" />
+      <span>Stay logged in</span>
+    </div>
+    <button class="login-button" disabled>Login</button>
+  </form>
+</div>
+
+</body>
+</html
